@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
+        <TextView
+            android:id="@+id/observableactivity_activity_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uses ObservableFields to automatically refresh the UI and showcases common bad practices"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAlignment="center"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+       />
+
+        <Button
+            android:id="@+id/observable_fields_activity_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Observable Fields activity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/observableactivity_activity_label"
+        ></Button>
+
+        <TextView
+            android:id="@+id/viewmodel_activity_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uses a ViewModel to hold data and handle user actions, using better alternatives"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/observable_fields_activity_button"
+            android:textAlignment="center"
+            />
+
+        <Button
+            android:id="@+id/viewmodel_activity_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ViewModel activity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewmodel_activity_label"
+            ></Button>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See README.md for details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewmodel_activity_button"
+            android:textAlignment="center"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
