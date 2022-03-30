@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.viewmodelActivityButton.setOnClickListener {
-            Toast.makeText(this,"2222",Toast.LENGTH_LONG).show()
+            startActivity(Intent(this,ViewModelActivity::class.java))
         }
     }
 }

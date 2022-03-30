@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".basicsample.ui.ViewModelActivity">
+
+   <data>
+       <variable
+           name="viewmodel"
+           type="com.leachchen.testjetpack.basicsample.data.ProfileLiveDataViewModel" />
+   </data>
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      <!-- A simple binding between a TextView and a string observable in the ViewModel -->
+      <TextView
+          android:id="@+id/name_label"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Name"
+          android:layout_marginEnd="128dp"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          ></TextView>
+
+      <TextView
+          android:id="@+id/name"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:layout_constraintTop_toBottomOf="@+id/name_label"
+          app:layout_constraintStart_toStartOf="@+id/name_label"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:layout_marginEnd="128dp"
+          android:layout_marginTop="8dp"
+          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+          android:text="@{viewmodel.name}"
+          >
+      </TextView>
+
+      <TextView
+          android:id="@+id/lastname_label"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Last Name"
+          android:layout_marginEnd="128dp"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/name"
+          ></TextView>
+
+
+      <TextView
+          android:id="@+id/lastname"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:layout_constraintTop_toBottomOf="@+id/lastname_label"
+          app:layout_constraintStart_toStartOf="@+id/name_label"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:layout_marginEnd="128dp"
+          android:layout_marginTop="8dp"
+          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+          android:text="@{viewmodel.lastName}"
+          >
+      </TextView>
+
+
+      <ImageView
+          android:id="@+id/image"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:minWidth="48dp"
+          android:minHeight="48dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintBottom_toBottomOf="@id/name"
+          app:layout_constraintStart_toEndOf="@+id/name"
+          app:layout_constraintTop_toTopOf="@id/name"
+          android:tint="@{viewmodel.likes &gt; 9 ? @color/star : @android:color/black}"
+          app:popularityIcon="@{viewmodel.popularity}"
+          tools:ignore="UseAppTint">
+      </ImageView>
+
+      <TextView
+          android:id="@+id/likes_label"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="like"
+          app:layout_constraintLeft_toLeftOf="@id/image"
+          app:layout_constraintTop_toBottomOf="@id/image"
+          app:layout_constraintRight_toRightOf="@id/image"
+          >
+      </TextView>
+
+      <Button
+          android:id="@+id/like_button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="like"
+          app:layout_constraintLeft_toLeftOf="@id/likes_label"
+          app:layout_constraintTop_toBottomOf="@id/likes_label"
+          app:layout_constraintRight_toRightOf="@id/likes_label"
+          android:layout_marginTop="20dp"
+          android:onClick="@{()->viewmodel.onLike()}"
+          ></Button>
+
+      <ProgressBar
+          android:id="@+id/progressBar"
+          style="?android:attr/progressBarStyleHorizontal"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:layout_constraintLeft_toLeftOf="@id/like_button"
+          app:layout_constraintTop_toBottomOf="@id/like_button"
+          app:layout_constraintRight_toRightOf="@id/like_button"
+          android:layout_marginTop="10dp"
+          android:max="@{100}"
+          app:progressScaled="@{viewmodel.likes}"
+          >
+      </ProgressBar>
+
+      <TextView
+          android:id="@+id/test"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:layout_constraintLeft_toLeftOf="@id/progressBar"
+          app:layout_constraintTop_toBottomOf="@id/progressBar"
+          app:layout_constraintRight_toRightOf="@id/progressBar"
+          app:setMyText="@{viewmodel.likes}"
+          >
+          <!--app:srcTest="@{user.lastName}"-->
+      </TextView>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  </layout>
