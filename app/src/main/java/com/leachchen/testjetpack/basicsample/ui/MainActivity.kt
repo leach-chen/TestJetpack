@@ -13,7 +13,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding:ActivityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
         binding.observableFieldsActivityButton.setOnClickListener {
-            startActivity(Intent(this,ObservableFieldActivity::class.java))
+            val intent = Intent(this, ObservableFieldActivity::class.java)
+           /* intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
+            intent.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK)*/
+            startActivity(Intent(intent))
         }
 
         binding.viewmodelActivityButton.setOnClickListener {
