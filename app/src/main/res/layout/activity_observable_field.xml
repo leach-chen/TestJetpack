@@ -122,6 +122,17 @@
 
         </ProgressBar>
 
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@id/progressBar"
+            app:layout_constraintTop_toBottomOf="@id/progressBar"
+            app:layout_constraintRight_toRightOf="@id/progressBar"
+            app:setMyText="@{user.likes}"
+            >
+            <!--app:srcTest="@{user.lastName}"-->
+        </TextView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -105,5 +105,9 @@ object BindingAdapters {
     }
 
 
+    @BindingAdapter(value = ["setMyText"], requireAll = true)
+    @JvmStatic fun setMyTextFun(textView: TextView,likes: Int) {
+        textView.setText(""+likes)
+    }
 
 }

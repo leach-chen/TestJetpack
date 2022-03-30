@@ -40,7 +40,10 @@ import android.widget.TextView
 @BindingMethods(
         BindingMethod(type = ImageView::class,
                 attribute = "srcCompat",
-                method = "setImageResource")
+                method = "setImageResource"),
+        BindingMethod(type = TextView::class,
+        attribute = "srcTest",
+        method = "setText")
 
 )
 
